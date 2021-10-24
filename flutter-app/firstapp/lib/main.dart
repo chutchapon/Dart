@@ -178,13 +178,18 @@ class _MyCountState extends State<MyCount> {
     return MaterialApp(
       title: 'Counter',
       home: Scaffold(
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            setState(() {
-              number++;
-            });
-          },
-          child: Icon(Icons.add_circle),
+        floatingActionButton: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            FloatingActionButton(
+              onPressed: increaseNumber,
+              child: Icon(Icons.add_circle),
+            ),
+            FloatingActionButton(
+              onPressed: decreaseNumber,
+              child: Icon(Icons.remove_circle),
+            ),
+          ],
         ),
         appBar: AppBar(
           title: Text('My Counter'),
@@ -201,5 +206,17 @@ class _MyCountState extends State<MyCount> {
         ),
       ),
     );
+  }
+
+  void increaseNumber() {
+    setState(() {
+      number++;
+    });
+  }
+
+  void decreaseNumber() {
+    setState(() {
+      number++;
+    });
   }
 }
